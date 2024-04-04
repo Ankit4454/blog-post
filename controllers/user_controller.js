@@ -94,7 +94,7 @@ module.exports.signin = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { name: user.name, email: user.email, role: user.role },
+      { id: user.id, name: user.name, email: user.email, role: user.role },
       process.env.JWT_SECRET_BLOG_POST,
       { expiresIn: "1h" }
     );
