@@ -9,6 +9,7 @@ app.use("/", require("./routes"));
 const initApp = async () => {
   try {
     await sequelize.authenticate();
+    await sequelize.sync();
     app.listen(port, (err) => {
       if (err) {
         return console.log(`Error while running server: ${err}`);

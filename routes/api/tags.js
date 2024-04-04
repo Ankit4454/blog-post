@@ -4,6 +4,6 @@ const tagController = require("../../controllers/tag_controller");
 
 router.post("/create", tagController.create);
 router.post("/update", tagController.update);
-router.post("/delete", tagController.delete);
+router.get("/delete/id", tagController.delete);
 
 module.exports = router;
