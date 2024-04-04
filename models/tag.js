@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/sequelize");
+const { User } = require("./user");
 
 const Tag = sequelize.define(
   "Tag",
@@ -13,11 +14,11 @@ const Tag = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    postId: {
+    userId: {
       type: DataTypes.UUID,
       allowNull: false,
       references: {
-        model: "Post",
+        model: "User",
         key: "id",
       },
     },
@@ -27,6 +28,8 @@ const Tag = sequelize.define(
     timestamps: true,
   }
 );
+
+Tag.belongsTo(User, { foreignKey: "userId" });
 
 module.exports = {
   Tag,
