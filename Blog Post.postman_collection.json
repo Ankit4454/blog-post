@@ -1,0 +1,2472 @@
+{
+	"info": {
+		"_postman_id": "429c3f0f-3ca1-4066-a58d-cc8e9011a841",
+		"name": "Blog Post",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33267261"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "SignUp",
+					"item": [
+						{
+							"name": "SignUp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Admin\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"Admin@123456\",\r\n    \"role\": \"admin\" // Enum [\"user\", \"admin\"] default role \"user\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/users/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users",
+										"signup"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Case 1",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"<Admin>\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"Admin@123456\",\r\n    \"role\": \"admin\" // Enum [\"user\", \"admin\"] default role \"user\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/users/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users",
+												"signup"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "61"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3d-O5ioAMihsg8IzD9xy19SQFDMEP8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 15:52:00 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Special characters are not allowed\"\n}"
+								},
+								{
+									"name": "Case 2",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Admin\",\r\n    \"email\": \"admin\",\r\n    \"password\": \"Admin@123456\",\r\n    \"role\": \"admin\" // Enum [\"user\", \"admin\"] default role \"user\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/users/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users",
+												"signup"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "47"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2f-F2kwGQ8KTKW68BbhQtmglSvsjZ8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 15:53:15 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Invalid email format\"\n}"
+								},
+								{
+									"name": "Case 3",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Admin\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"Admin123\",\r\n    \"role\": \"admin\" // Enum [\"user\", \"admin\"] default role \"user\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/users/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users",
+												"signup"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "150"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"96-zoMY8gnyOUqG1Sd7P/QprPjOpwc\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 15:54:01 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Password must have at least 8 characters, one uppercase letter, one lowercase letter, one digit, and one special character.\"\n}"
+								},
+								{
+									"name": "Case 4",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Admin\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"Admin@123456\",\r\n    \"role\": \"admin\" // Enum [\"user\", \"admin\"] default role \"user\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/users/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users",
+												"signup"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "170"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"aa-r3jD5l/mLqRwcfQnsJqgb751DjY\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 15:51:17 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"id\": \"74260f3b-bda9-4c52-95d2-95f396ee4f36\",\n            \"name\": \"Admin\",\n            \"email\": \"admin@gmail.com\",\n            \"role\": \"admin\"\n        }\n    },\n    \"message\": \"Registration successful\"\n}"
+								},
+								{
+									"name": "Case 5",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"ak\",\r\n    \"email\": \"ak@gmail.com\",\r\n    \"password\": \"Ak@123456\",\r\n    \"role\": \"user\" // Enum [\"user\", \"admin\"] default role \"user\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/users/signup",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users",
+												"signup"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "163"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"a3-p4PZ7GQYiqzsh9VeFNY+tkexCOc\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 15:58:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"user\": {\n            \"id\": \"bafb2636-6485-4ad1-8ce0-9d1a3379914d\",\n            \"name\": \"ak\",\n            \"email\": \"ak@gmail.com\",\n            \"role\": \"user\"\n        }\n    },\n    \"message\": \"Registration successful\"\n}"
+								}
+							]
+						}
+					],
+					"description": "- **Description**: Allows users to register by providing their name, email, and password.\n- **Method**: POST\n- **Endpoint**: `/api/users/signup`\n- **Request Body**:\n    - `name` (string): The name of the user.\n    - `email` (string): The email address of the user.\n    - `password` (string): The password for the user account.\n- **Response**:\n    - 201 Created: User registered successfully.\n    - 400 Bad Request: Invalid request body or missing required fields.\n    - 409 Conflict: User already exist.\n    - 500 Internal Server Error: Server encountered an unexpected condition."
+				},
+				{
+					"name": "SignIn",
+					"item": [
+						{
+							"name": "SignIn",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"admin\",\r\n    \"password\": \"Admin@123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/users/signin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users",
+										"signin"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Case 1",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"admin\",\r\n    \"password\": \"Admin@123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/users/signin",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users",
+												"signin"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "47"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2f-F2kwGQ8KTKW68BbhQtmglSvsjZ8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:03:35 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Invalid email format\"\n}"
+								},
+								{
+									"name": "Case 2",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"Admin\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/users/signin",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users",
+												"signin"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "46"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2e-2oexAPzzrUgLGYhuWdtm64eEqTY\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:04:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Invalid credentials\"\n}"
+								},
+								{
+									"name": "Case 3",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"Admin@123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/users/signin",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users",
+												"signin"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "348"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"15c-VbpXSMr4jk1NNKmhqBDJgYwg1ws\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:05:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"token\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc0MjYwZjNiLWJkYTktNGM1Mi05NWQyLTk1ZjM5NmVlNGYzNiIsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEyMzMzMTA4LCJleHAiOjE3MTIzMzY3MDh9.gAizv7Ai4MjGq9Pb-U1olkru_IB-7JsDbskEaqi95kw\"\n    },\n    \"message\": \"You have successfully logged in\"\n}"
+								},
+								{
+									"name": "Case 4",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"ak@gmail.com\",\r\n    \"password\": \"Ak@123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/users/signin",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"users",
+												"signin"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "339"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"153-EWd39q8+DNoRJfT6AkW0ISwZR/A\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:05:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"token\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZmIyNjM2LTY0ODUtNGFkMS04Y2UwLTlkMWEzMzc5OTE0ZCIsIm5hbWUiOiJhayIsImVtYWlsIjoiYWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTIzMzMxNTAsImV4cCI6MTcxMjMzNjc1MH0.pfXD4OUCNxtG-AYCVNiRCHzG1L_n_siiS_jjbULE6ig\"\n    },\n    \"message\": \"You have successfully logged in\"\n}"
+								}
+							]
+						}
+					],
+					"description": "- **Description**: Allows users to log in by providing their email and password.\n- **Method**: POST\n- **Endpoint**: `/api/users/signin`\n- **Request Body**:\n    - `email` (string): The email address of the user.\n    - `password` (string): The password for the user account.\n- **Response**:\n    \n    - 200 OK: User logged in successfully.\n        \n    - 400 Bad Request: Invalid request body or missing required fields.\n        \n    - 401 Unauthorized: Invalid credentials or user not found.\n    - 500 Internal Server Error: Server encountered an unexpected condition."
+				}
+			],
+			"description": "The User API provides endpoints for user-related operations such as registration, login, and profile management. Users can register for an account, authenticate themselves by logging in, and access their profile information."
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/posts/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Case 1",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"HTML\",\r\n    \"content\": \"Hyper Text Markup Languaage\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/posts/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts",
+												"create"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "39"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"27-3TQtfxqzPa53GDOSIKGD2Uhvky4\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:13:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Unauthorized\"\n}"
+								},
+								{
+									"name": "Case 2",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZmIyNjM2LTY0ODUtNGFkMS04Y2UwLTlkMWEzMzc5OTE0ZCIsIm5hbWUiOiJhayIsImVtYWlsIjoiYWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTIzMzMxNTAsImV4cCI6MTcxMjMzNjc1MH0.pfXD4OUCNxtG-AYCVNiRCHzG1L_n_siiS_jjbULE6ig",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"<HTML>\",\r\n    \"content\": \"Hyper Text Markup Languaage\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/posts/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts",
+												"create"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "61"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3d-O5ioAMihsg8IzD9xy19SQFDMEP8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:14:01 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Special characters are not allowed\"\n}"
+								},
+								{
+									"name": "Case 3",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZmIyNjM2LTY0ODUtNGFkMS04Y2UwLTlkMWEzMzc5OTE0ZCIsIm5hbWUiOiJhayIsImVtYWlsIjoiYWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTIzMzMxNTAsImV4cCI6MTcxMjMzNjc1MH0.pfXD4OUCNxtG-AYCVNiRCHzG1L_n_siiS_jjbULE6ig",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\": \"HTML\",\r\n    \"content\": \"Hyper Text Markup Languaage\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/posts/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts",
+												"create"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "299"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"12b-lpdunKVIaPU+LJ6WIskR5nv7eHc\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:14:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"post\": {\n            \"id\": \"c82905b4-cded-4b18-8a6d-bd0e75edd68e\",\n            \"title\": \"HTML\",\n            \"content\": \"Hyper Text Markup Languaage\",\n            \"authorId\": \"bafb2636-6485-4ad1-8ce0-9d1a3379914d\",\n            \"updatedAt\": \"2024-04-05T16:14:29.623Z\",\n            \"createdAt\": \"2024-04-05T16:14:29.623Z\"\n        }\n    },\n    \"message\": \"Post created successfully\"\n}"
+								}
+							]
+						}
+					],
+					"description": "- **Description**: Allows authenticated users to create a new post.\n    \n- **Method**: POST\n    \n- **Endpoint**: `/api/posts/create`\n    \n- **Authorization**: Bearer Token (JWT)\n    \n- **Request Body**:\n    \n    - `title` (string): The title of the post.\n        \n    - `content` (string): The content of the post.\n        \n- **Response**:\n    \n    - 201 Created: Post created successfully.\n        \n    - 400 Bad Request: Invalid request body or missing required fields.\n        \n    - 401 Unauthorized: Invalid or missing token.\n        \n    - 500 Internal Server Error: Server encountered an unexpected condition."
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/posts/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										"update"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Case 1",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"c82905b4-cded-4b18-8a6d-bd0e75edd68e\",\r\n    \"title\": \"HTML5\",\r\n    \"content\": \"Hyper Text Markup Language 5\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/posts/update",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts",
+												"update"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "39"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"27-3TQtfxqzPa53GDOSIKGD2Uhvky4\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:19:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Unauthorized\"\n}"
+								},
+								{
+									"name": "Case 2",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZmIyNjM2LTY0ODUtNGFkMS04Y2UwLTlkMWEzMzc5OTE0ZCIsIm5hbWUiOiJhayIsImVtYWlsIjoiYWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTIzMzMxNTAsImV4cCI6MTcxMjMzNjc1MH0.pfXD4OUCNxtG-AYCVNiRCHzG1L_n_siiS_jjbULE6ig",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"c82905b4-cded-4b18-8a6d-bd0e75edd68e\",\r\n    \"title\": \"HTML5\",\r\n    \"content\": \"<Hyper> Text Markup Language 5\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/posts/update",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts",
+												"update"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "61"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3d-O5ioAMihsg8IzD9xy19SQFDMEP8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:20:56 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Special characters are not allowed\"\n}"
+								},
+								{
+									"name": "Case 3",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZmIyNjM2LTY0ODUtNGFkMS04Y2UwLTlkMWEzMzc5OTE0ZCIsIm5hbWUiOiJhayIsImVtYWlsIjoiYWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTIzMzMxNTAsImV4cCI6MTcxMjMzNjc1MH0.pfXD4OUCNxtG-AYCVNiRCHzG1L_n_siiS_jjbULE6ig",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"c82905b4-cded-4b18-8a6d-bd0e75edd68e\",\r\n    \"title\": \"HTML5\",\r\n    \"content\": \"Hyper Text Markup Language 5\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/posts/update",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts",
+												"update"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "301"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"12d-1DWGstP1lGqu8AtPNES4FLHEDx8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:21:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"post\": {\n            \"id\": \"c82905b4-cded-4b18-8a6d-bd0e75edd68e\",\n            \"title\": \"HTML5\",\n            \"content\": \"Hyper Text Markup Language 5\",\n            \"authorId\": \"bafb2636-6485-4ad1-8ce0-9d1a3379914d\",\n            \"createdAt\": \"2024-04-05T16:14:29.623Z\",\n            \"updatedAt\": \"2024-04-05T16:21:25.305Z\"\n        }\n    },\n    \"message\": \"Post updated successfully\"\n}"
+								}
+							]
+						}
+					],
+					"description": "- **Description**: Allows authenticated users to update their own posts.\n- **Method**: POST\n- **Endpoint**: `/api/posts/update`\n- **Authorization**: Bearer Token (JWT)\n- **Request Body**:\n    - `title` (string): The new title of the post.\n    - `content` (string): The new content of the post.\n    - `id` (string): The ID of the post to update.\n- **Response**:\n    - 200 OK: Post updated successfully.\n    - 400 Bad Request: Invalid request body or missing required fields.\n    - 401 Unauthorized: Invalid or missing token.\n    - 404 Not Found: Post not found or user not authorized to update.\n    - 500 Internal Server Error: Server encountered an unexpected condition."
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/posts/delete/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										"delete",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Case 1 -> With normal user token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZmIyNjM2LTY0ODUtNGFkMS04Y2UwLTlkMWEzMzc5OTE0ZCIsIm5hbWUiOiJhayIsImVtYWlsIjoiYWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTIzMzMxNTAsImV4cCI6MTcxMjMzNjc1MH0.pfXD4OUCNxtG-AYCVNiRCHzG1L_n_siiS_jjbULE6ig",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/posts/delete/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts",
+												"delete",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "c82905b4-cded-4b18-8a6d-bd0e75edd68e"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "39"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"27-3TQtfxqzPa53GDOSIKGD2Uhvky4\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:24:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Unauthorized\"\n}"
+								},
+								{
+									"name": "Case 2 -> With admin user token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc0MjYwZjNiLWJkYTktNGM1Mi05NWQyLTk1ZjM5NmVlNGYzNiIsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzEyMzMzMTA4LCJleHAiOjE3MTIzMzY3MDh9.gAizv7Ai4MjGq9Pb-U1olkru_IB-7JsDbskEaqi95kw",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/posts/delete/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts",
+												"delete",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "c82905b4-cded-4b18-8a6d-bd0e75edd68e"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "79"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4f-eHo8DTacpL+C64nHkIK+G1oOf1o\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:25:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"deletedRows\": 1\n    },\n    \"message\": \"Post deleted successfully\"\n}"
+								}
+							]
+						}
+					],
+					"description": "- **Description**: Allows authenticated admin to delete posts.\n- **Method**: POST\n- **Endpoint**: `/api/posts/delete/:id`\n- **Authorization**: Bearer Token (JWT)\n- **Request Parameters**:\n    - `id` (string): The ID of the post to delete.\n- **Response**:\n    - 200 OK: Post deleted successfully.\n    - 401 Unauthorized: Invalid or missing token.\n    - 404 Not Found: Post not found or user not authorized to delete.\n    - 500 Internal Server Error: Server encountered an unexpected condition."
+				},
+				{
+					"name": "Search",
+					"item": [
+						{
+							"name": "Search",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/posts/search/:tagName",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										"search",
+										":tagName"
+									],
+									"variable": [
+										{
+											"key": "tagName",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Case 1",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8000/api/posts/search/:tagName",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts",
+												"search",
+												":tagName"
+											],
+											"variable": [
+												{
+													"key": "tagName",
+													"value": "html"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "74"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4a-3HZfkGJ4orQI4Mz3Vt+gazUqPuA\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:50:18 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"posts\": []\n    },\n    \"message\": \"Posts associated with tag\"\n}"
+								},
+								{
+									"name": "Case 2",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8000/api/posts/search/:tagName",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts",
+												"search",
+												":tagName"
+											],
+											"variable": [
+												{
+													"key": "tagName",
+													"value": "web"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "725"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2d5-ZAHU1QrCPMW0Dvl42WUGiylyHWQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:50:36 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"posts\": [\n            {\n                \"id\": \"0f8ad2b8-d076-49e6-abd4-e2e1d692431b\",\n                \"title\": \"title-1\",\n                \"content\": \"content-1\",\n                \"authorId\": \"bafb2636-6485-4ad1-8ce0-9d1a3379914d\",\n                \"createdAt\": \"2024-04-05T16:16:15.831Z\",\n                \"updatedAt\": \"2024-04-05T16:16:15.831Z\",\n                \"Tags\": [\n                    {\n                        \"id\": \"25859cba-e5cf-4cb8-a46c-489b44fce5a0\",\n                        \"tagName\": \"Web dev updated\",\n                        \"userId\": \"bafb2636-6485-4ad1-8ce0-9d1a3379914d\",\n                        \"createdAt\": \"2024-04-05T16:37:21.134Z\",\n                        \"updatedAt\": \"2024-04-05T16:45:18.178Z\",\n                        \"PostTag\": {\n                            \"id\": \"c64ff5ff-47ac-46e8-844e-f695c166f07a\",\n                            \"postId\": \"0f8ad2b8-d076-49e6-abd4-e2e1d692431b\",\n                            \"tagId\": \"25859cba-e5cf-4cb8-a46c-489b44fce5a0\",\n                            \"createdAt\": \"2024-04-05T16:37:21.925Z\",\n                            \"updatedAt\": \"2024-04-05T16:37:21.925Z\"\n                        }\n                    }\n                ]\n            }\n        ]\n    },\n    \"message\": \"Posts associated with tag\"\n}"
+								}
+							]
+						}
+					],
+					"description": "- **Description**: Allows users to fetch posts by associated tag name.\n- **Method**: GET\n- **Endpoint**: `/api/posts/search/:tagName`\n- **Request Parameters**:\n    - `tagName` (string): Search posts by associated tag name.\n- **Response**:\n    \n    - 200 OK: Posts associated with tag.\n        \n    - 500 Internal Server Error: Server encountered an unexpected condition."
+				},
+				{
+					"name": "Filter",
+					"item": [
+						{
+							"name": "Filter",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/posts/filter",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										"filter"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Case 1",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"startDate\": \"2024-04-05T16:16:15.831Z\",\r\n    \"endDate\": \"2024-04-05T16:16:15.831Z\",\r\n    \"authorName\": \"AK\",\r\n    \"tags\": \"web\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/posts/filter",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts",
+												"filter"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "63"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3f-v037EO9KxEx2vePmmp/OkU1mQlU\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 06 Apr 2024 07:27:48 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"posts\": []\n    },\n    \"message\": \"Filtered posts\"\n}"
+								},
+								{
+									"name": "Case 2",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"authorName\": \"AK\",\r\n    \"tags\": \"web,css,rust\" //tagName seperated by \",\" (comma)\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/posts/filter",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts",
+												"filter"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "318"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"13e-NlfPC7HFbS+0u+NCFuEJzZyb2J8\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 06 Apr 2024 07:28:52 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"posts\": [\n            {\n                \"id\": \"0f8ad2b8-d076-49e6-abd4-e2e1d692431b\",\n                \"title\": \"title-1\",\n                \"content\": \"content-1\",\n                \"name\": \"ak\",\n                \"tagNames\": \"Web dev updated,CSS3,Website\"\n            },\n            {\n                \"id\": \"89e71f5c-ab0e-448b-9cbc-7b818e232fce\",\n                \"title\": \"title-3\",\n                \"content\": \"content-3\",\n                \"name\": \"ak\",\n                \"tagNames\": \"Rust\"\n            }\n        ]\n    },\n    \"message\": \"Filtered posts\"\n}"
+								},
+								{
+									"name": "Case 3",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"startDate\": \"2024-04-03T16:16:15.831Z\",\r\n    \"endDate\": \"2024-04-06T16:16:15.831Z\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/posts/filter",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts",
+												"filter"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "684"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2ac-6FNk0eF1M1WiE6aM8bUHpyQQWrY\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 06 Apr 2024 07:30:15 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"posts\": [\n            {\n                \"id\": \"0f8ad2b8-d076-49e6-abd4-e2e1d692431b\",\n                \"title\": \"title-1\",\n                \"content\": \"content-1\",\n                \"name\": \"ak\",\n                \"tagNames\": \"Web dev updated,CSS3,Website\"\n            },\n            {\n                \"id\": \"1e0f02da-2a2d-404e-aa45-a87e6d955833\",\n                \"title\": \"title-4\",\n                \"content\": \"content-4\",\n                \"name\": \"ak\",\n                \"tagNames\": \"Ruby on rails\"\n            },\n            {\n                \"id\": \"3a1b6a40-c645-414b-a068-de76cd5195b3\",\n                \"title\": \"title-5\",\n                \"content\": \"content-5\",\n                \"name\": \"ak\",\n                \"tagNames\": \"Block-chain\"\n            },\n            {\n                \"id\": \"89e71f5c-ab0e-448b-9cbc-7b818e232fce\",\n                \"title\": \"title-3\",\n                \"content\": \"content-3\",\n                \"name\": \"ak\",\n                \"tagNames\": \"Rust\"\n            },\n            {\n                \"id\": \"e09cbefd-df41-4586-992d-1876d6fa6d24\",\n                \"title\": \"title-2\",\n                \"content\": \"content-2\",\n                \"name\": \"ak\",\n                \"tagNames\": \"Python\"\n            }\n        ]\n    },\n    \"message\": \"Filtered posts\"\n}"
+								}
+							]
+						}
+					],
+					"description": "- **Description**: Allows users to filter posts by various criteria like date range, author and combination of tags.\n- **Method**: GET\n- **Endpoint**: `/api/posts/filter`\n- **Request Body**:\n    \n    - `startDate` (string): Filter start date for posts.\n    - `endDate` (string): Filter end date for posts.\n    - `authorName` (string): Filter by authorName for posts.\n    - `tags` (string): The tags seperated by \",\" for posts.\n        \n- **Response**:\n    - 200 OK: Filtered posts.\n    - 500 Internal Server Error: Server encountered an unexpected condition."
+				},
+				{
+					"name": "All posts",
+					"item": [
+						{
+							"name": "All Posts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Case 1",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8000/api/posts",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"posts"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1127"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"467-qXsgo40O9SxaXKrmR08xOFOqecI\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:26:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"posts\": [\n            {\n                \"id\": \"0f8ad2b8-d076-49e6-abd4-e2e1d692431b\",\n                \"title\": \"title-1\",\n                \"content\": \"content-1\",\n                \"authorId\": \"bafb2636-6485-4ad1-8ce0-9d1a3379914d\",\n                \"createdAt\": \"2024-04-05T16:16:15.831Z\",\n                \"updatedAt\": \"2024-04-05T16:16:15.831Z\"\n            },\n            {\n                \"id\": \"e09cbefd-df41-4586-992d-1876d6fa6d24\",\n                \"title\": \"title-2\",\n                \"content\": \"content-2\",\n                \"authorId\": \"bafb2636-6485-4ad1-8ce0-9d1a3379914d\",\n                \"createdAt\": \"2024-04-05T16:16:23.780Z\",\n                \"updatedAt\": \"2024-04-05T16:16:23.780Z\"\n            },\n            {\n                \"id\": \"89e71f5c-ab0e-448b-9cbc-7b818e232fce\",\n                \"title\": \"title-3\",\n                \"content\": \"content-3\",\n                \"authorId\": \"bafb2636-6485-4ad1-8ce0-9d1a3379914d\",\n                \"createdAt\": \"2024-04-05T16:16:30.529Z\",\n                \"updatedAt\": \"2024-04-05T16:16:30.529Z\"\n            },\n            {\n                \"id\": \"1e0f02da-2a2d-404e-aa45-a87e6d955833\",\n                \"title\": \"title-4\",\n                \"content\": \"content-4\",\n                \"authorId\": \"bafb2636-6485-4ad1-8ce0-9d1a3379914d\",\n                \"createdAt\": \"2024-04-05T16:16:35.844Z\",\n                \"updatedAt\": \"2024-04-05T16:16:35.844Z\"\n            },\n            {\n                \"id\": \"3a1b6a40-c645-414b-a068-de76cd5195b3\",\n                \"title\": \"title-5\",\n                \"content\": \"content-5\",\n                \"authorId\": \"bafb2636-6485-4ad1-8ce0-9d1a3379914d\",\n                \"createdAt\": \"2024-04-05T16:16:41.735Z\",\n                \"updatedAt\": \"2024-04-05T16:16:41.735Z\"\n            }\n        ]\n    },\n    \"message\": \"All posts\"\n}"
+								}
+							]
+						}
+					],
+					"description": "- **Description**: Allows users to fetch all posts.\n    \n- **Method**: GET\n    \n- **Endpoint**: `/api/posts`\n    \n- **Response**:\n    \n    - 200 OK: All posts.\n        \n    - 500 Internal Server Error: Server encountered an unexpected condition."
+				}
+			],
+			"description": "The Blog Post API provides endpoints for managing blog posts, including creating, updating, deleting, searching, and filtering posts based on various criteria."
+		},
+		{
+			"name": "Tag",
+			"item": [
+				{
+					"name": "Create",
+					"item": [
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/tags/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tags",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Case 1",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"tagName\": \"Web delelopment\",\r\n    \"postId\": \"0f8ad2b8-d076-49e6-abd4-e2e1d692431b\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/tags/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"tags",
+												"create"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "39"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"27-3TQtfxqzPa53GDOSIKGD2Uhvky4\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:31:48 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Unauthorized\"\n}"
+								},
+								{
+									"name": "Case 2",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZmIyNjM2LTY0ODUtNGFkMS04Y2UwLTlkMWEzMzc5OTE0ZCIsIm5hbWUiOiJhayIsImVtYWlsIjoiYWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTIzMzMxNTAsImV4cCI6MTcxMjMzNjc1MH0.pfXD4OUCNxtG-AYCVNiRCHzG1L_n_siiS_jjbULE6ig",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"tagName\": \"<Web> delelopment\",\r\n    \"postId\": \"0f8ad2b8-d076-49e6-abd4-e2e1d692431b\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/tags/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"tags",
+												"create"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "61"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3d-O5ioAMihsg8IzD9xy19SQFDMEP8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:32:27 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Special characters are not allowed\"\n}"
+								},
+								{
+									"name": "Case 3",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZmIyNjM2LTY0ODUtNGFkMS04Y2UwLTlkMWEzMzc5OTE0ZCIsIm5hbWUiOiJhayIsImVtYWlsIjoiYWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTIzMzMxNTAsImV4cCI6MTcxMjMzNjc1MH0.pfXD4OUCNxtG-AYCVNiRCHzG1L_n_siiS_jjbULE6ig",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"tagName\": \"Web delelopment\",\r\n    \"postId\": \"0f8ad2b8-d076-49e6-abd4\" //Invalid postId\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/tags/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"tags",
+												"create"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "41"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"29-krMQDazOhnSEeuxQSC866yKFSPA\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:36:39 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Post not found\"\n}"
+								},
+								{
+									"name": "Case 4",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZmIyNjM2LTY0ODUtNGFkMS04Y2UwLTlkMWEzMzc5OTE0ZCIsIm5hbWUiOiJhayIsImVtYWlsIjoiYWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTIzMzMxNTAsImV4cCI6MTcxMjMzNjc1MH0.pfXD4OUCNxtG-AYCVNiRCHzG1L_n_siiS_jjbULE6ig",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"tagName\": \"Web delelopment\",\r\n    \"postId\": \"0f8ad2b8-d076-49e6-abd4-e2e1d692431b\" //Valid postId\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/tags/create",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"tags",
+												"create"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "268"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"10c-nse7Qb8WQNPcEdJJTdHpp+06Y2s\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:37:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"tag\": {\n            \"id\": \"25859cba-e5cf-4cb8-a46c-489b44fce5a0\",\n            \"tagName\": \"Web delelopment\",\n            \"userId\": \"bafb2636-6485-4ad1-8ce0-9d1a3379914d\",\n            \"updatedAt\": \"2024-04-05T16:37:21.134Z\",\n            \"createdAt\": \"2024-04-05T16:37:21.134Z\"\n        }\n    },\n    \"message\": \"Tag created successfully\"\n}"
+								}
+							]
+						}
+					],
+					"description": "- **Description**: Allows authenticated users to create a new tag for particualr post.\n    \n- **Method**: POST\n- **Endpoint**: `/api/tags/create`\n- **Authorization**: Bearer Token (JWT)\n- **Request Body**:\n    \n    - `tagName` (string): The name of the tag.\n    - `postId` (string): The ID of the post.\n        \n- **Response**:\n    - 201 Created: Tag created successfully.\n    - 400 Bad Request: Invalid request body or missing required fields.\n    - 401 Unauthorized: Invalid or missing token.\n    - 500 Internal Server Error: Server encountered an unexpected condition."
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/tags/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tags",
+										"update"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Case 1",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"25859cba-e5cf-4cb8-a46c-489b44fce5a0\",\r\n    \"tagName\": \"Web dev updated\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/tags/update",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"tags",
+												"update"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "39"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"27-3TQtfxqzPa53GDOSIKGD2Uhvky4\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:39:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Unauthorized\"\n}"
+								},
+								{
+									"name": "Case 2",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZmIyNjM2LTY0ODUtNGFkMS04Y2UwLTlkMWEzMzc5OTE0ZCIsIm5hbWUiOiJhayIsImVtYWlsIjoiYWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTIzMzMxNTAsImV4cCI6MTcxMjMzNjc1MH0.pfXD4OUCNxtG-AYCVNiRCHzG1L_n_siiS_jjbULE6ig",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"25859cba-e5cf-4cb8-a46c-489b44fce5a0\",\r\n    \"tagName\": \"Web$ dev updated\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/tags/update",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"tags",
+												"update"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "61"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3d-O5ioAMihsg8IzD9xy19SQFDMEP8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:40:36 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Special characters are not allowed\"\n}"
+								},
+								{
+									"name": "Case 3",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZmIyNjM2LTY0ODUtNGFkMS04Y2UwLTlkMWEzMzc5OTE0ZCIsIm5hbWUiOiJhayIsImVtYWlsIjoiYWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTIzMzMxNTAsImV4cCI6MTcxMjMzNjc1MH0.pfXD4OUCNxtG-AYCVNiRCHzG1L_n_siiS_jjbULE6ig",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"25859cba-e5cf-4cb8-a46c-489b44fce5a0\",\r\n    \"tagName\": \"Web dev updated\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/tags/update",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"tags",
+												"update"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "268"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"10c-8wh22qQTIKGk8nA2E76sw+Vk+n8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:41:00 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"tag\": {\n            \"id\": \"25859cba-e5cf-4cb8-a46c-489b44fce5a0\",\n            \"tagName\": \"Web dev updated\",\n            \"userId\": \"bafb2636-6485-4ad1-8ce0-9d1a3379914d\",\n            \"createdAt\": \"2024-04-05T16:37:21.134Z\",\n            \"updatedAt\": \"2024-04-05T16:41:00.453Z\"\n        }\n    },\n    \"message\": \"Tag updated successfully\"\n}"
+								}
+							]
+						}
+					],
+					"description": "- **Description**: Allows authenticated users to update existing tags.\n- **Method**: POST\n- **Endpoint**: `/api/tags/update`\n- **Authorization**: Bearer Token (JWT)\n- **Request Body**:\n    - `tagName` (string): The new name of the tag.\n    - `id` (string): The ID of the tag to update.\n- **Response**:\n    \n    - 200 OK: Tag updated successfully.\n    - 400 Bad Request: Invalid request body or missing required fields.\n    - 401 Unauthorized: Invalid or missing token.\n    - 404 Not Found: Tag not found or user not authorized to update.\n        \n    - 500 Internal Server Error: Server encountered an unexpected condition."
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/tags/delete/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tags",
+										"delete",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Case 1",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8000/api/tags/delete/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"tags",
+												"delete",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "272265df-abb2-4eb9-8978-0abef6bcac9c"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "39"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"27-3TQtfxqzPa53GDOSIKGD2Uhvky4\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:46:09 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": true,\n    \"message\": \"Unauthorized\"\n}"
+								},
+								{
+									"name": "Case 2",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZmIyNjM2LTY0ODUtNGFkMS04Y2UwLTlkMWEzMzc5OTE0ZCIsIm5hbWUiOiJhayIsImVtYWlsIjoiYWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MTIzMzMxNTAsImV4cCI6MTcxMjMzNjc1MH0.pfXD4OUCNxtG-AYCVNiRCHzG1L_n_siiS_jjbULE6ig",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:8000/api/tags/delete/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"tags",
+												"delete",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "272265df-abb2-4eb9-8978-0abef6bcac9c"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "78"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4e-PKE9vIGZ9SjsxS/iLuKjHxdZ4Rs\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 16:47:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"success\": true,\n    \"data\": {\n        \"deletedRows\": 1\n    },\n    \"message\": \"Tag deleted successfully\"\n}"
+								}
+							]
+						}
+					],
+					"description": "- **Description**: Allows authenticated users to delete their own tags.\n- **Method**: POST\n- **Endpoint**: `/api/tags/delete/:id`\n- **Authorization**: Bearer Token (JWT)\n- **Request Parameters**:\n    - `id` (string): The ID of the tag to delete.\n- **Response**:\n    - 200 OK: Tag deleted successfully.\n    - 401 Unauthorized: Invalid or missing token.\n    - 404 Not Found: Tag not found or user not authorized to delete.\n    - 500 Internal Server Error: Server encountered an unexpected condition."
+				}
+			],
+			"description": "The Tag API provides endpoints for managing tags associated with blog posts, including creating, updating, and deleting tags."
+		}
+	]
+}

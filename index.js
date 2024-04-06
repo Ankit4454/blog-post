@@ -2,8 +2,13 @@ const express = require("express");
 const port = 8000;
 const app = express();
 const sequelize = require("./config/sequelize");
+const expressLayouts = require("express-ejs-layouts");
+const path = require("path");
 
 app.use(express.json());
+app.use(expressLayouts);
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, './views'));
 app.use("/", require("./routes"));
 
 const initApp = async () => {
