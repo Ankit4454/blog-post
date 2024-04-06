@@ -33,7 +33,11 @@ module.exports.signup = async (req, res) => {
 
   try {
     const hashedPassword = await hashSync(password, 10);
-    const userExist = await User.findOne({ email: email });
+    const userExist = await User.findOne({
+      where: {
+        email: email,
+      },
+    });
     if (userExist) {
       return res.status(409).json({
         error: true,
@@ -77,15 +81,19 @@ module.exports.signin = async (req, res) => {
   }
 
   try {
-    const userExist = await User.findOne({ email: email });
+    const userExist = await User.findOne({
+      where: { email: email },
+    });
     if (!userExist) {
       return res.status(401).json({
         error: true,
         message: "Invalid credentials",
       });
     }
-
-    const isPasswordValid = await compareSync(password, userExist.password);
+    const isPasswordValid = await compareSync(
+      password,
+      userExist.dataValues.password
+    );
     if (!isPasswordValid) {
       return res.status(401).json({
         error: true,
@@ -94,14 +102,19 @@ module.exports.signin = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { id: user.id, name: user.name, email: user.email, role: user.role },
+      {
+        id: userExist.dataValues.id,
+        name: userExist.dataValues.name,
+        email: userExist.dataValues.email,
+        role: userExist.dataValues.role,
+      },
       process.env.JWT_SECRET_BLOG_POST,
       { expiresIn: "1h" }
     );
     return res.status(200).json({
       success: true,
       data: {
-        token: token,
+        token: `Bearer ${token}`,
       },
       message: "You have successfully logged in",
     });
